@@ -217,12 +217,16 @@ body {
 }
 /* Create two equal columns that floats next to each other */
 .columncontainer {
-    display:flex;
+    display:flex, block;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     margin: 32px;
 }
-  
+
+.columncontainer img{
+    max-width: 100%;
+}
+
 /* Clear floats after the columns */
 .row:after {
     content: "";
