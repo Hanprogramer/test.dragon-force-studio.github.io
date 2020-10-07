@@ -45,24 +45,49 @@
             function collapsePanel(self){
                 if(self.innerText == "X"){
                     // Close the panel
-                    self.innerText = "...";
-                    var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
-                    for(var i in elm){
-                        elm[i].style.display = "none";
-                    }
+                    try{
+                        self.innerText = "...";
+                        var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
+                        for(var i in elm){
+                            elm[i].style.display = "none";
+                        }
+                    }catch(e){}
                 }else{
                     // Open the panel
-                    self.innerText = "X";
-                    var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
-                    for(var i in elm){
-                        elm[i].style.display = "block";
-                    }
+                    try{
+                        self.innerText = "X";
+                        var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
+                        for(var i in elm){
+                            elm[i].style.display = "block";
+                        }
+                    }catch(e){}
                 }
             }
             // Auto hide the menubar on mobile
-            if(window.screen.width < 720){
-                collapsePanel(document.getElementById("asldkfjhasdfoi"));
+            function onWindowResize() {
+                if(window.screen.width < 720){
+                    try{
+                        var self = document.getElementById("asldkfjhasdfoi");
+                        self.style.display = "block";
+                        self.innerText = "...";
+                        var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
+                        for(var i in elm){
+                            elm[i].style.display = "none";
+                        }
+                    }catch(e){}
+                }else{
+                    try{
+                        var self = document.getElementById("asldkfjhasdfoi");
+                        self.style.display = "none";
+                        var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
+                        for(var i in elm){
+                            elm[i].style.display = "block";
+                        }
+                    }catch(e){}
+                }
             }
+
+            window.onresize = onWindowResize;
         </script>
         <div class="separator"></div>
         <div class="logo">

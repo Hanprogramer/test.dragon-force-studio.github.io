@@ -144,6 +144,9 @@ body {
         position: fixed;
         top: 64px;
     }
+    .subnavbar a{
+        display:block;
+    }
     .closebutton{
         display:none;
     }
