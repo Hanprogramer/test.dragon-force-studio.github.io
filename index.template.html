@@ -3,12 +3,14 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="stylesheet" href="index.css">
+        <link type="text/css" rel="stylesheet" href="navbar.css">
         <!-- <link rel="stylesheet" href="nav.css"> -->
         <link rel="icon" type="image/png" href="images/logo_dfs.png">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script data-ad-client="ca-pub-9638544368327690" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/DragonForcE.ttf">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
         <title>Dragon Force Studio</title>
@@ -24,71 +26,89 @@
 
         <!-- Include this to make the og:image larger -->
         <meta name="twitter:card" content="summary_large_image">
+        <!-- Menu bar close/open on mobile -->
+        <script>
+                // 
+                // MENU BAR COLLAPSE
+                // 
+                function collapsePanel(self){
+                    if(self.innerText == "X"){
+                        // Close the panel
+                        try{
+                            self.innerText = "...";
+                            document.querySelector(".subnavitems").style.top = "-165px";
+                            // var arr = document.querySelectorAll(".subnavbar>.subnavitems>a");
+                            // arr.forEach(elm => {
+                            //     elm.style.display = "none";
+                            // });
+                        }catch(e){console.log(e)}
+                    }else{
+                        // Open the panel
+                        try{
+                            self.innerText = "X";
+                            //document.querySelector(".subnavitems").stlye.top = "100%";
+                            document.querySelector(".subnavitems").style.top = "0";
+                            // var arr = document.querySelectorAll(".subnavbar>.subnavitems>a");
+                            // arr.forEach(elm => {
+                            //     elm.style.display = "block";
+                            // });
+                        }catch(e){console.log(e)}
+                    }
+                }
+                // Auto hide the menubar on mobile
+                function onWindowResize() {
+                    if(window.screen.width < 720){
+                        try{
+                            var self = document.getElementById("asldkfjhasdfoi");
+                            // self.style.display = "block";
+                            self.innerText = "...";
+                            // var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
+                            // for(var i in elm){
+                            //     elm[i].style.display = "none";
+                            // }
+                        }catch(e){}
+                    }else{
+                        try{
+                            var self = document.getElementById("asldkfjhasdfoi");
+                            // self.style.display = "none";
+                            var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
+                            for(var i in elm){
+                                elm[i].style.display = "block";
+                            }
+                        }catch(e){}
+                    }
+                }
+                
+                window.onresize = onWindowResize;</script>
     </head>
-    <body>
+    <body onload="onWindowResize()">
         <script>
             CSS.paintWorklet.addModule('./bubblePaint.js')
         </script>
         <div class="navbar">
-            <a href="index.html"><img src="images/logo-white.png"></a>
+            <!-- <a href="index.html"><img src="images/logo-white.png"></a> -->
+            <div class="cube">
+                <div class="flippety">
+                    <!-- <h1>Dragon Force Studio</h1> -->
+                    <!-- <img src="images/logo-white.png"> -->
+                    <a href="index.html" class="title">Dragon Force Studio</a>
+                </div>
+                <div class="flop">
+                    <h2>Join us on discord</h2>
+                </div>
+            </div>
         </div>
-        <div class="subnavbar">
-            <a href="index.html">Home</a>
-            <a href="downloads.html">Downloads</a>
-            <a href="apply.html">Apply</a>
-            <a href="wiki.html">Wiki</a>
-            <a href="contact.html">Contact Us</a>
-            <a id="asldkfjhasdfoi" class="closebutton" onclick="collapsePanel(this)">X</a>
-        </div>
-        <!-- Menu bar close/open on mobile -->
-        <script>
-            function collapsePanel(self){
-                if(self.innerText == "X"){
-                    // Close the panel
-                    try{
-                        self.innerText = "...";
-                        var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
-                        for(var i in elm){
-                            elm[i].style.display = "none";
-                        }
-                    }catch(e){}
-                }else{
-                    // Open the panel
-                    try{
-                        self.innerText = "X";
-                        var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
-                        for(var i in elm){
-                            elm[i].style.display = "block";
-                        }
-                    }catch(e){}
-                }
-            }
-            // Auto hide the menubar on mobile
-            function onWindowResize() {
-                if(window.screen.width < 720){
-                    try{
-                        var self = document.getElementById("asldkfjhasdfoi");
-                        self.style.display = "block";
-                        self.innerText = "...";
-                        var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
-                        for(var i in elm){
-                            elm[i].style.display = "none";
-                        }
-                    }catch(e){}
-                }else{
-                    try{
-                        var self = document.getElementById("asldkfjhasdfoi");
-                        self.style.display = "none";
-                        var elm = document.querySelectorAll(".subnavbar>a:not(.closebutton)");
-                        for(var i in elm){
-                            elm[i].style.display = "block";
-                        }
-                    }catch(e){}
-                }
-            }
 
-            window.onresize = onWindowResize;
-        </script>
+        <div class="subnavbar">
+            <div class="subnavitems">
+                <a href="index.html">Home</a>
+                <a href="downloads.html">Downloads</a>
+                <a href="apply.html">Apply</a>
+                <a href="wiki.html">Wiki</a>
+                <a href="contact.html">Contact Us</a>
+                <p id="asldkfjhasdfoi" class="closebutton" onclick="collapsePanel(this)">X</p>
+            </div>
+        </div>
         <div class="separator"></div>
         <div class="logo">
             <img src="images\logo-HD.png">
@@ -96,8 +116,8 @@
         <div class="columncontainer">
             <img src="images/renders/black-dragon.png">
             <div class="content">
-                <h1 style="text-align: center; border-bottom: 5px dashed white;">Who are we?</h1>
-                <p style="text-align: center;">
+                <h1>Who are we?</h1>
+                <p>
                     Our mission is to create quality and 
                     unique addons, texture packs, skins,
                     and maps to provide to Minecraft Bedrock players.
@@ -105,6 +125,38 @@
                     As a team we aim to expand
                     the potential of Minecraft
                     to make it a more enjoyable experience.</p>
+            </div>
+        </div>
+        <div class="columncontainer">
+            <img src="https://dragon-force-studio.com/images/addons/ef_cover.png">
+            <div class="content">
+                <h1>Expansive Fantasy</h1>
+                <p>
+                    Want your own fire breathing dragon then this is the 
+                    addon for you soar through the air and go wherever 
+                    it will take you. Take on any enemy that comes your way. 
+                    Become one with your dragon and show everyone that the 
+                    bond you share with your dragon is unmatched . 
+                    Do you have what it takes to become a dragon master?
+                </p>
+                <a style="text-align: center"><button>Download Now</button></a>
+            </div>
+        </div>
+        <div class="columncontainer">
+            <img src="https://dragon-force-studio.com/images/skins/twiggy_skin_pack_cover.png">
+            <div class="content">
+                <h1>Ultimate Fantasy Skin Pack</h1>
+                <p>
+                    Ultimate Fantasy brings five new awesome skins! 
+                    Become a mystic Blue Sorcerer. 
+                    Or show off your inner wickedness with the Dark Sorcerer. 
+                    From the divine Angle Girls enlightenment. 
+                    To Hell Boys fiery endure. 
+                    And Wind Girls otherworldly omen. 
+                    This skin pack adds five amazing skins. 
+                    Impress your friends with the new Ultimate Fantasy skin pack!
+                </p>
+                <a style="text-align: center"><button>Download Now</button></a>
             </div>
         </div>
         <!-- <div class="maindivider" style="position: relative">
