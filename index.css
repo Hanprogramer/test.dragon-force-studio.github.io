@@ -414,7 +414,8 @@ body {
     padding: 0;
     padding-top: 16px;
     text-align: center;
-    color: rgb(207, 42, 42);
+    color: rgb(254, 255, 255);
+    text-shadow: 0 2px 0 rgb(88, 86, 86);
     text-transform: uppercase;
     /* background-color: rgb(46, 46, 46); */
 }
@@ -575,14 +576,63 @@ button:active{
     border-bottom: 0 solid rgb(102, 10, 10);
 }
 
+.discordbtn{
+    background-color: rgb(114, 36, 240);
+    border-top: 0 solid rgb(42, 10, 102);
+    border-bottom: 4px solid rgb(42, 10, 102);
+}
+.discordbtn:hover{
+    background-color: rgb(143, 80, 245);
+}
+.discordbtn:active{
+    background-color: rgb(85, 34, 168);
+    border-top: 4px solid rgb(42, 10, 102);
+    border-bottom: 0 solid rgb(42, 10, 102);
+}
+.twitterbtn{
+    background-color: rgb(36, 148, 240);
+    border-top: 0 solid rgb(10, 61, 102);
+    border-bottom: 4px solid rgb(10, 61, 102);
+}
+.twitterbtn:hover{
+    background-color: rgb(80, 226, 245);
+}
+.twitterbtn:active{
+    background-color: rgb(34, 130, 168);
+    border-top: 4px solid rgb(10, 61, 102);
+    border-bottom: 0px solid rgb(10, 61, 102);
+}
+
+.facebookbutton{
+    background-color: rgb(36, 67, 240);
+    border-top: 0 solid rgb(10, 61, 102);
+    border-bottom: 4px solid rgb(10, 61, 102);
+}
+.facebookbutton:hover{
+    background-color: rgb(77, 103, 250);
+}
+.facebookbutton:active{
+    background-color: rgb(18, 20, 131);
+    border-top: 4px solid rgb(10, 61, 102);
+    border-bottom: 0px solid rgb(10, 61, 102);
+}
+
+.footer{
+    border: 2px solid rgb(39, 39, 39);
+    background-color: rgb(29, 29, 29);
+    margin: 0;
+    background-image: url("images/background4x.png");
+}
 .footer .container .row{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    margin: 16px;
 }
 .footer .container .col-md-4{
     flex-grow:1;
+    padding: 16px;
+    border-left: 1px solid rgb(39, 39, 39);
+    border-right: 1px solid rgb(39, 39, 39);
 }
 
 
@@ -606,9 +656,15 @@ button:active{
     transform: translateY(10%);
 }
 .teamdesc-container {
+    z-index: -1;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+}
+.teamdesc-container h1{
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 0px rgb(85, 85, 85);
 }
 .teamdesc {
     margin: 16px;
@@ -617,7 +673,9 @@ button:active{
 
 .teamdesc h2{
     text-align: center;
-    color: rgb(182, 30, 30);
+    color: rgb(224, 21, 21);
+    text-shadow: 0 2px 0 rgb(56, 1, 1);
+    margin: 0;
 }
 
 .teamdesc p{
