@@ -81,7 +81,7 @@
                 
                 window.onresize = onWindowResize;</script>
     </head>
-    <body onload="onWindowResize()">
+    <body onload="onWindowResize();">
         <script>
             CSS.paintWorklet.addModule('./bubblePaint.js')
         </script>
@@ -127,6 +127,66 @@
                     to make it a more enjoyable experience.</p>
             </div>
         </div>
+
+        <div class="columncontainer">
+            <div class="teamskin">
+                <div id="zahf">
+                    <a><img src="images/renders/zahf.png"></a>
+                </div>
+                <div id="twiggy">
+                    <a><img src="images/renders/twiggy.png"></a>
+                </div>
+            </div>
+            <div class="teamdesc-container">
+                <div class="teamdesc">
+                    <div id="zahf">
+                        <h2>Zahf - The team leader</h2>
+                        <p>Head of the team, founder of Dragon-Force-Studio. Head of the team, founder of Dragon-Force-Studio. Head of the team, founder of Dragon-Force-Studio. Head of the team, founder of Dragon-Force-Studio.</p>
+                    </div>
+                    <div id="twiggy">
+                        <h2>TWIGGY - The modeller</h2>
+                        <p>All my life I've wanted to tame and ride a dragon through the vast biomes. lucky me I had the chance to not just play the add-on but help in producing the release of this addon. The add-on blew up brining 100's of thousands of downloads.
+                        Now I'm a modeler and texturer for the team who can also animate his models. I'm still learning more and more , everytime I make a new model I learn something new to take my model to the next level. Best part is my team are full of amazing people with talents and skills who can guide me and help me avoid mistakes.                                
+                        <br><a href="https://m.youtube.com/channel/UCAvNrRs37Gt5b2biu1N7-oQ">YouTube channel</a><br>
+                        <a href="https://twitter.com/TWIGGY_1006?s=09">Twitter</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="teamprogress"></div>
+            </div>
+            <script>
+                // Profile cycler
+                progress = 0;
+                profindex = 1;
+                profiles = ["zahf", "twiggy"];
+                profile = profiles[profindex];
+                root = document.documentElement;
+                setInterval(()=>{
+                    progress += 1;
+                    root.style.setProperty('--team-progress', String(progress) + "%");
+                    if(progress > 100){
+                        progress = 0;
+                        profindex += 1;
+                        profile = profiles[profindex % profiles.length];
+                        refreshActiveProfile();
+                    }
+                }, 60);
+
+                function refreshActiveProfile(){
+                    // Sets the current profile displayed
+                    document.querySelectorAll(".teamskin > div").forEach((val) => {val.style.display = "none";val.classList.remove("animatedfadein");});
+                    document.querySelector(".teamskin > #" + profile).style.display = "block";
+                    document.querySelector(".teamskin > #" + profile).classList.add("animatedfadein");
+
+                    document.querySelectorAll(".teamdesc > div").forEach((val) => {val.style.display = "none";val.classList.remove("animatedfadein");});
+                    document.querySelector(".teamdesc > #" + profile).style.display = "block";
+                    document.querySelector(".teamdesc > #" + profile).classList.add("animatedfadein");
+                }
+                refreshActiveProfile();
+            </script>
+        </div>
+
         <div class="columncontainer">
             <img src="https://dragon-force-studio.com/images/addons/ef_cover.png">
             <div class="content">
@@ -143,7 +203,7 @@
             </div>
         </div>
         <div class="columncontainer">
-            <img src="https://dragon-force-studio.com/images/skins/twiggy_skin_pack_cover.png">
+            <!-- <img src="https://dragon-force-studio.com/images/skins/twiggy_skin_pack_cover.png"> -->
             <div class="content">
                 <h1>Ultimate Fantasy Skin Pack</h1>
                 <p>

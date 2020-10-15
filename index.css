@@ -1,7 +1,10 @@
 
 * {
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+:root{
+    --team-progress: 0%;
 }
 h1, h2, h3, h4 {
     font-family: 'Noto Sans', sans-serif;
@@ -69,9 +72,29 @@ body {
 	.flop{
 		display: none;
 	}
+    .teamskin{
+        max-width: 100%;
+    }
+    .teamdesc {
+        width: 90%;
+    }
+
+    .teamdesc-container{
+        height: 320px;
+    }
 }
 /* For PC */
 @media screen and (min-width: 720px) {
+    .teamskin{
+        max-width: 50%;
+        min-width: 50%;
+    }
+    .teamdesc {
+        width: 90%;
+    }
+    .teamdesc-container{
+        max-height: 512px;
+    }
 	.navbar {
 		color: rgb(6, 106, 117);
 		/* text-transform: uppercase; */
@@ -387,13 +410,20 @@ body {
     box-sizing: border-box;
 }
 .content h1{
+    margin: 0;
+    padding: 0;
+    padding-top: 16px;
     text-align: center;
-    background-color: rgb(46, 46, 46);
+    color: rgb(207, 42, 42);
+    text-transform: uppercase;
+    /* background-color: rgb(46, 46, 46); */
 }
 
 .content p{
     padding: 16px;
     text-align: justify;
+    font-size: 20px;
+    color: rgb(204, 202, 202);
 }
 
 .content img, iframe {
@@ -523,20 +553,26 @@ button {
     line-height: 44px;
     padding: 2px;
     text-align: center;
-    border-radius: 4px;
-    transition: background-color .1s;
+    /* border-radius: 4px; */
     border: none;
+    outline: none;
+    border-top: 0 solid rgb(102, 10, 10);
+    border-bottom: 4px solid rgb(102, 10, 10);
+    transition: background-color .1s;
     width: 65%;
     cursor: pointer;
     font-family: 'Noto Sans';
     text-transform: uppercase;
+    transition: all .2s;
 }
 
 button:hover{
     background-color: rgb(255, 43, 43);
 }
 button:active{
+    border-top: 4px solid rgb(102, 10, 10);
     background-color: rgb(138, 11, 11);
+    border-bottom: 0 solid rgb(102, 10, 10);
 }
 
 .footer .container .row{
@@ -550,3 +586,64 @@ button:active{
 }
 
 
+/* Meet the team part */
+.teamskin{
+    height: 512px;
+    width: auto;
+    background-image: url('images/ground.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    z-index: -1;
+}
+
+.teamskin img{
+    transform: translateY(10%);
+}
+.teamdesc-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.teamdesc {
+    margin: 16px;
+    height: 100%;
+}
+
+.teamdesc h2{
+    text-align: center;
+    color: rgb(182, 30, 30);
+}
+
+.teamdesc p{
+    text-align: justify;
+    color: rgb(177, 177, 177);
+    font-size: 20px;
+}
+
+.teamdesc div {
+    overflow-y: auto;
+}
+
+.teamprogress{
+    background-color: rgb(133, 21, 21);
+    height: 8px;
+    width: var(--team-progress);
+    transition: width .2s;
+}
+
+.animatedfadein{
+    animation-name: fadein;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadein{
+    0%  {opacity: 0;}
+    100%  {opacity: 100%;}
+}
