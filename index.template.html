@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="stylesheet" href="index.css">
-        <link type="text/css" rel="stylesheet" href="navbar.css">
+        <!-- <link type="text/css" rel="stylesheet" href="navbar.css"> -->
         <!-- <link rel="stylesheet" href="nav.css"> -->
         <link rel="icon" type="image/png" href="images/logo_dfs.png">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
         <meta property="og:site_name" content="DRAGON FORCE STUDIO" /> <!-- website name -->
         <meta property="og:site" content="https://dragon-force-studio.codragon-force-studio.com" /> <!-- website link -->
         <meta property="og:title" content="DRAGON FORCE STUDIO"/> <!-- title shown in the actual shared post -->
-        <meta property="og:description" content="We are Dragon Force Studio,we develope quality addons, maps, texture packs, and skins for minecraft bedrock" /> <!-- description shown in the actual shared post -->
+        <meta property="og:description" content="We are Dragon Force Studio,we develop quality addons, maps, texture packs, and skins for minecraft bedrock" /> <!-- description shown in the actual shared post -->
         <meta property="og:image" content="images/dfs.jpg" /> <!-- image link, make sure it's jpg -->
         <meta property="og:url" content="https://dragon-force-studio.com" /> <!-- where do you want your post to link to -->
         <meta property="og:type" content="article" />
@@ -118,6 +118,7 @@
             <div class="content">
                 <h1>Who are we?</h1>
                 <p>
+                        We are Dragon Force Studio,we develop quality addons, maps, texture packs, and skins for minecraft bedrock.
                     Our mission is to create quality and 
                     unique addons, texture packs, skins,
                     and maps to provide to Minecraft Bedrock players.
@@ -152,8 +153,8 @@
                         <br>
                         <a href="https://m.youtube.com/channel/UCAvNrRs37Gt5b2biu1N7-oQ">YouTube channel</a>
                         <br>
-                        <a href="https://twitter.com/TWIGGY_1006?s=09">Twitter</a>
-                    </div>
+                        <a href="https://twitter.com/TWIGGY_1006?s=09">Twitter</a>                    
+                    </div>  
                 </div>
                 
                 <div class="teamprogress"></div>
@@ -182,8 +183,8 @@
                     document.querySelector(".teamskin > #" + profile).style.display = "block";
                     document.querySelector(".teamskin > #" + profile).classList.add("animatedfadein");
 
-                    document.querySelectorAll(".teamdesc > div").forEach((val) => {val.style.display = "none";val.classList.remove("animatedfadein");});
-                    document.querySelector(".teamdesc > #" + profile).style.display = "block";
+                    document.querySelectorAll(".teamdesc > div").forEach((val) => {val.style.height = "0";val.classList.remove("animatedfadein");});
+                    document.querySelector(".teamdesc > #" + profile).style.height = "100%";
                     document.querySelector(".teamdesc > #" + profile).classList.add("animatedfadein");
                 }
                 refreshActiveProfile();
@@ -226,10 +227,10 @@
             <img src="images/renders/social.png">
             <div class="content" style="flex-grow: 1">
                 <h1>Contact us</h1>
-                <a style="text-align: center"><button class="discordbtn">Join Discord</button></a>
-                <a style="text-align: center"><button>Youtube</button></a>
-                <a style="text-align: center"><button class="twitterbtn">Twitter</button></a>
-                <a style="text-align: center"><button class="facebookbutton">Facebook</button></a>
+                <a target="_blank" href="https://discord.gg/n2Bxdwk" style="text-align: center"><button class="discordbtn">Join Discord</button></a>
+                <a target="_blank" href="https://www.youtube.com/c/zahfgaming" style="text-align: center"><button>Youtube</button></a>
+                <a target="_blank" href="https://twitter.com/ck_zahf22?s=09" style="text-align: center"><button class="twitterbtn">Twitter</button></a>
+                <a target="_blank" href="https://facebook.com/zahfgaming" style="text-align: center"><button class="facebookbutton">Facebook</button></a>
             </div>
         </div>
         <!-- <div class="maindivider" style="position: relative">

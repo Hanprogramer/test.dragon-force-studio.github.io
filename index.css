@@ -39,7 +39,7 @@ body {
 		position: fixed;
 		width: 100%;
 		top: 0;
-		z-index: 200;
+		z-index: 2000;
 		/* object-fit: scale-down; */
 	}
 
@@ -106,7 +106,8 @@ body {
 		-webkit-perspective: 1000px; 
 		position: fixed;
 		width: 100%;
-		top: 0;
+        top: 0;
+        z-index: 250;
 		/* object-fit: scale-down; */
 	}
 
@@ -235,7 +236,7 @@ body {
     height: 32px;
     object-fit: cover;
     text-align: center;
-    z-index : 100;
+    z-index : 999;
     line-height: 32px;
     position: fixed;
     top: 64px;
@@ -277,8 +278,18 @@ body {
     background-color: rgba(39, 39, 39, 0.205);
     object-fit: scale-down;
 }
+.columncontainer{
+    overflow: hidden;
+}
 .columncontainer img {
     object-fit: cover;
+    overflow: hidden;
+    transition: all .4s;
+}
+
+.columncontainer:hover img {
+    /* border: 2px solid rgb(167, 38, 38); */
+    transform: scale(1.2);
 }
 .subnavbar > .subnavitems > * {transition: all .4s}
 /* For Mobile */
@@ -405,9 +416,10 @@ body {
 .content {
     /* margin: 16px; */
     padding: 0;
-    background-color: rgba(26, 26, 26, 0.432);
+    background-color: rgb(26, 26, 26);
     border: 2px solid rgba(51, 51, 51, 0.253);
     box-sizing: border-box;
+    z-index: 4;
 }
 .content h1{
     margin: 0;
@@ -556,7 +568,7 @@ button {
     text-align: center;
     /* border-radius: 4px; */
     border: none;
-    outline: none;
+    outline: solid 2px black;
     border-top: 0 solid rgb(102, 10, 10);
     border-bottom: 4px solid rgb(102, 10, 10);
     transition: background-color .1s;
@@ -566,9 +578,13 @@ button {
     text-transform: uppercase;
     transition: all .2s;
 }
+a > button {
+    text-decoration: none;
+}
 
 button:hover{
     background-color: rgb(255, 43, 43);
+    outline: solid 2px white;
 }
 button:active{
     border-top: 4px solid rgb(102, 10, 10);
@@ -619,9 +635,9 @@ button:active{
 
 .footer{
     border: 2px solid rgb(39, 39, 39);
-    background-color: rgb(29, 29, 29);
+    background-color: rgb(15, 15, 15);
     margin: 0;
-    background-image: url("images/background4x.png");
+    /* background-image: url("images/background4x.png"); */
 }
 .footer .container .row{
     display: flex;
@@ -654,9 +670,13 @@ button:active{
 
 .teamskin img{
     transform: translateY(10%);
+    -webkit-filter: drop-shadow(1px 1px 0 black)
+                    drop-shadow(-1px -1px 0 black);
+    filter: drop-shadow(1px 1px 0 black) 
+            drop-shadow(-1px -1px 0 black);
 }
 .teamdesc-container {
-    z-index: -1;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
