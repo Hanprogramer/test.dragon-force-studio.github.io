@@ -4,10 +4,16 @@ import glob
 import sys
 import markdown2
 
-# Reads the template file
+# Reads the template files
 f = open("index.template.html", "r")
-content = f.readlines()
+INDEX_TEMPLATE = f.readlines()
 f.close()
+
+f = open("posts.template.html", "r")
+POSTS_TEMPLATE = f.read()
+f.close()
+# posts formatted using string formatting with %s
+# format (title, bodyHTML)
 
 # List all available posts
 POSTS = {}
@@ -118,9 +124,10 @@ footer = """<script async src="https://pagead2.googlesyndication.com/pagead/js/a
 </html>"""
 f = open("index.html", "w")
 # Generator
-for line in content:
+for line in INDEX_TEMPLATE:
     raw = line.strip()
     if(raw == "<div class=\"GENERATED\"></div>"):
+        f.write('<div class="post-wrapper">')
         for key in POSTS.keys():
             #########################################
             #      POSTS CONTENT GENERATOR
@@ -141,9 +148,8 @@ for line in content:
                 f_category.write(template)
 
                 # Generate the individual post html
-                html = header
-                html += (markdown2.markdown_path("posts/%s/%s/post.md" %(key, post)))
-                html += footer
+                html_formatted = POSTS_TEMPLATE.replace('"', "\\\"")
+                html = POSTS_TEMPLATE % ("Post",markdown2.markdown_path("posts/%s/%s/post.md" %(key, post)))
 
                 f_post = open("posts/%s/%s/post.html" % (key,post), "w")
                 f_post.write(html)
@@ -151,6 +157,9 @@ for line in content:
             f.write('</div>')
             f_category.write(footer)
             f_category.close()
+        
+        f.write('</div>')
         continue
-    f.write(line)
+    else:
+        f.write(line)
 f.close()

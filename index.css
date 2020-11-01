@@ -215,13 +215,17 @@ body {
     width: 100%;
     background-image: url("./images/download-withgradient.png");
     background-repeat: no-repeat;
+    z-index : -1;
+    position: fixed;
 }
 
-.logo img{
+.logoimg{
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  margin-bottom: 128px;
+  padding-top: 128px;
 }
 
 .closebutton{
@@ -275,8 +279,10 @@ body {
 }
 .columncontainer{
     border: 2px solid rgb(90, 90, 90);
-    background-color: rgba(39, 39, 39, 0.205);
+    background-color: rgba(22, 22, 22, 0.87);
     object-fit: scale-down;
+    position: relative;
+    z-index: 100;
 }
 .columncontainer{
     overflow: hidden;
@@ -421,7 +427,7 @@ body {
     box-sizing: border-box;
     z-index: 4;
 }
-.content h1{
+h1{
     margin: 0;
     padding: 0;
     padding-top: 16px;
@@ -470,6 +476,7 @@ body {
 
 .post img {
     height: 100%;
+    width: 100%;
     object-fit: cover;
     -webkit-transition: all 0.2s ease-in;
     -moz-transition: all 0.2s ease-in;
@@ -481,6 +488,8 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
 }
 
 
@@ -724,4 +733,25 @@ button:active{
 @keyframes fadein{
     0%  {opacity: 0;}
     100%  {opacity: 100%;}
+}
+
+.post-wrapper {
+    width: 100%;
+    margin:auto;
+    /* padding: 32px; */
+    background-color: rgba(0, 0, 0, 0.315);
+}
+
+.width100{
+    width: 100%;
+}
+.normalpost-columncontainer{
+    flex-direction: column;
+    border: 2px solid rgb(90, 90, 90);
+    background-color: rgba(22, 22, 22, 0.87);
+    object-fit: scale-down;
+    position: relative;
+    z-index: 100;
+    margin: 64px;
+    padding: 32px;
 }
