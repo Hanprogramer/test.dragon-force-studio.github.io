@@ -1,7 +1,10 @@
 #griffin
-##entities
-![griffin](https://dragon-force-studio.com/images/EF_wiki/griffin.png)
+<a href="/posts/wiki/entities">entities</a>
+<div class="iteminfo">
+<h3>griffin</h3>
+<img class="pixelimage" src="https://dragon-force-studio.com/images/EF_wiki/griffin.png">
 
+</div>
 Description:  A mythical creature portrayed as a lion with the wings and head of a bald eagle.  This beast is tamable, only by tranquilizing it and then feed it with 'Griffin Special Food'.
 
 Health:  100

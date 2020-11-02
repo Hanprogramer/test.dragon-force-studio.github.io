@@ -1,7 +1,7 @@
 .wikicards {
     width: 256px;
     height: 256px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.568);
     border: 4px dashed white;
     padding: 8px;
     margin: 8px;
@@ -54,6 +54,10 @@
         flex-direction: row;
         flex-wrap: wrap;
     }
+    .iteminfo{
+        max-width: 80%;
+        margin: auto;
+    }
 }
 /* PC users */
 @media screen and (min-width: 720px){
@@ -64,26 +68,35 @@
         flex-direction: row;
         flex-wrap: wrap;
     }
+    .iteminfo{
+        max-width: 300px;
+        margin: auto;
+    }
 }
 
+.wikilist{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
 .wikilistitem{
-    width: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 2px;
+    min-width: 300px;
+    width: 30%;
+    margin: 2px;
     height: 64px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 
+    transition: background-color .2s;
     background-color: rgba(0, 0, 0, 0.212);
     border-radius: 4px;
 }
 .wikilistitem img{
     padding: 0;
     margin: 0;
-    height: 48px;
+    width: 48px;
     height: 48px;
     margin: 8px;
     object-fit: contain;
@@ -95,4 +108,30 @@
 }
 .wikilistitem:hover{
     background-color: rgba(95, 95, 95, 0.212);
+}
+
+.iteminfo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: 2px solid rgb(155, 155, 155);
+    background-color: rgba(24, 24, 24, 0.623);
+}
+
+.iteminfo h3 {
+    border-bottom: 2px solid rgb(155, 155, 155);
+    text-align: center;
+    text-transform: capitalize;
+    padding: 4px;
+    margin: 0;
+    background-color: rgb(92, 18, 18);
+}
+
+.iteminfo .pixelimage{
+   align-self: center;
+   margin: 16px; 
+}
+
+.iteminfo #text{
+    margin: 32px;
 }

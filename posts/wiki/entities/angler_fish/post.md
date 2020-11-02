@@ -1,7 +1,10 @@
 #angler_fish
-##entities
-![angler_fish](https://dragon-force-studio.com/images/EF_wiki/angler_fish.png)
+<a href="/posts/wiki/entities">entities</a>
+<div class="iteminfo">
+<h3>angler_fish</h3>
+<img class="pixelimage" src="https://dragon-force-studio.com/images/EF_wiki/angler_fish.png">
 
+</div>
 Description:  A wicked blue creature, with a huge head and enormous crescent-shaped mouth. It's said that its luminescent organ called the esca at the top of its head is to attract prey.  Possibly eating it whole with its razor sharp and translucent teeth.
 
 Health:  200

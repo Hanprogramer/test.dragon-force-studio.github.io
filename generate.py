@@ -148,9 +148,15 @@ for category in wiki.keys():
 
         item_file = open("posts/wiki/" + category + "/" + item + "/post.md", "w")
         item_file.write("#" + item + "\n")
-        item_file.write("##" + category + "\n")
-        item_file.write("![%s](%s)" % (item, item_obj["image"]) + "\n\n")
+        item_file.write('<a href="/posts/wiki/%s">%s</a>' % (category,category) + "\n")
+
+        item_file.write('<div class="iteminfo">\n')
+        item_file.write('<h3>%s</h3>' % item + "\n")
+        item_file.write('<img class="pixelimage" src="%s">' % (item_obj["image"]) + "\n\n")
+        item_file.write('</div>\n')
+        
         item_file.write(item_obj["description"])
+        
         item_file.close()
 
 # Generator
@@ -163,7 +169,7 @@ for line in INDEX_TEMPLATE:
                 # Create wiki subcategories
                 for wiki_category in os.listdir("posts/wiki/"):
                     if(not os.path.isdir("posts/wiki/%s/" % wiki_category)): continue
-                    f_category_html = ""
+                    f_category_html = '<div class="wikilist">'
                     for post in os.listdir("posts/wiki/%s/" % wiki_category):
                         if(not os.path.exists("posts/wiki/%s/%s/post.md" % (wiki_category,post))):
                             continue
@@ -182,6 +188,7 @@ for line in INDEX_TEMPLATE:
                         f_post = open("posts/wiki/%s/%s/post.html" % (wiki_category,post), "w")
                         f_post.write(html)
                         f_post.close()
+                    f_category_html += "</div>"
                     f_category = open("posts/wiki/%s/index.html" % wiki_category, "w")
                     f_category.write(WIKI_TEMPLATE % (wiki_category, f_category_html))
                     f_category.close()
@@ -199,7 +206,7 @@ for line in INDEX_TEMPLATE:
                 # Genereate the posts
                 template = """
                             <a class="post" href="posts/%s/%s/post.html">
-                                <img src="posts/%s/%s/thumb.png" style="width:512px; height: 256px">
+                                <img src="posts/%s/%s/thumb.png">
                             </a>\n""" % (key, post, key, post)
                 f.write(template)
                 f_category_html += template

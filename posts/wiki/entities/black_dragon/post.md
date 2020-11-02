@@ -1,7 +1,10 @@
 #black_dragon
-##entities
-![black_dragon](https://dragon-force-studio.com/images/EF_wiki/black_dragon.png)
+<a href="/posts/wiki/entities">entities</a>
+<div class="iteminfo">
+<h3>black_dragon</h3>
+<img class="pixelimage" src="https://dragon-force-studio.com/images/EF_wiki/black_dragon.png">
 
+</div>
 Description:  A beast, dark as the void.  Capable of annihilating entire villages with its breath.  And is only to be tamed from its origin, the egg.
 
 Health:  500(no armor), 600(armor)
