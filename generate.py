@@ -12,6 +12,9 @@ f.close()
 f = open("posts.template.html", "r")
 POSTS_TEMPLATE = f.read()
 f.close()
+f = open("wikiposts.template.html", "r")
+WIKI_TEMPLATE = f.read()
+f.close()
 # posts formatted using string formatting with %s
 # format (title, bodyHTML)
 
@@ -20,6 +23,12 @@ POSTS = {}
 for i in os.listdir("posts"):
     POSTS[i] = os.listdir("posts/%s" % i)
 
+# Load in the wiki JSON
+f = open("images/ef-wiki.json")
+wiki_raw = f.read()
+f.close()
+import json
+wiki = json.loads(wiki_raw)
 # Template header for all files
 header = """<!DOCTYPE html>
 <html>
@@ -123,39 +132,86 @@ footer = """<script async src="https://pagead2.googlesyndication.com/pagead/js/a
     </body>
 </html>"""
 f = open("index.html", "w")
+
+# Wiki generator
+# generates markdown files 
+for category in wiki.keys():
+    if(category == "version"): continue
+    if(not os.path.exists("posts/wiki/" + category)):
+        os.makedirs("posts/wiki/" + category)
+
+    # Generate sub posts for each category
+    for item in wiki[category].keys():
+        if(not os.path.exists("posts/wiki/" + category + "/" + item)):
+            os.makedirs("posts/wiki/" + category + "/" + item)
+        item_obj = wiki[category][item]
+
+        item_file = open("posts/wiki/" + category + "/" + item + "/post.md", "w")
+        item_file.write("#" + item + "\n")
+        item_file.write("##" + category + "\n")
+        item_file.write("![%s](%s)" % (item, item_obj["image"]) + "\n\n")
+        item_file.write(item_obj["description"])
+        item_file.close()
+
 # Generator
 for line in INDEX_TEMPLATE:
     raw = line.strip()
     if(raw == "<div class=\"GENERATED\"></div>"):
         f.write('<div class="post-wrapper">')
         for key in POSTS.keys():
+            if(key == "wiki"):  # exception for the wiki
+                # Create wiki subcategories
+                for wiki_category in os.listdir("posts/wiki/"):
+                    if(not os.path.isdir("posts/wiki/%s/" % wiki_category)): continue
+                    f_category_html = ""
+                    for post in os.listdir("posts/wiki/%s/" % wiki_category):
+                        if(not os.path.exists("posts/wiki/%s/%s/post.md" % (wiki_category,post))):
+                            continue
+                        # Genereate the posts
+                        template = """
+                                    <a class="wikilistitem" href="/posts/wiki/%s/%s/post.html">
+                                        <img src="%s">
+                                        <h3>%s</h3>
+                                    </a>\n""" % (wiki_category, post, wiki[wiki_category][post]["image"], post)
+                        # <img src="/posts/wiki/%s/%s/thumb.png" style="width:512px; height: 256px">
+                        f_category_html += template
+
+                        # Generate the individual post html
+                        html = WIKI_TEMPLATE % ("Post",markdown2.markdown_path("posts/wiki/%s/%s/post.md" %(wiki_category, post)))
+
+                        f_post = open("posts/wiki/%s/%s/post.html" % (wiki_category,post), "w")
+                        f_post.write(html)
+                        f_post.close()
+                    f_category = open("posts/wiki/%s/index.html" % wiki_category, "w")
+                    f_category.write(WIKI_TEMPLATE % (wiki_category, f_category_html))
+                    f_category.close()
+                continue
             #########################################
             #      POSTS CONTENT GENERATOR
             #########################################
             f.write("<h1>%s</h1>" % key.title())
             f.write('<div class="post-container">')
             f_category = open("%s.html" % key, "w")
-            f_category.write(header_root % ("<h1>%s</h1>" % key.title()))
+            f_category_html = ""
             for post in POSTS[key]:
                 if(not os.path.exists("posts/%s/%s/post.md" % (key,post))):
                     continue
                 # Genereate the posts
                 template = """
                             <a class="post" href="posts/%s/%s/post.html">
-                                <img src="posts/%s/%s/thumb.png">
+                                <img src="posts/%s/%s/thumb.png" style="width:512px; height: 256px">
                             </a>\n""" % (key, post, key, post)
                 f.write(template)
-                f_category.write(template)
+                f_category_html += template
 
                 # Generate the individual post html
-                html_formatted = POSTS_TEMPLATE.replace('"', "\\\"")
                 html = POSTS_TEMPLATE % ("Post",markdown2.markdown_path("posts/%s/%s/post.md" %(key, post)))
 
                 f_post = open("posts/%s/%s/post.html" % (key,post), "w")
                 f_post.write(html)
                 f_post.close()
             f.write('</div>')
-            f_category.write(footer)
+            f_category.write(POSTS_TEMPLATE % ("Post",f_category_html))
             f_category.close()
         
         f.write('</div>')

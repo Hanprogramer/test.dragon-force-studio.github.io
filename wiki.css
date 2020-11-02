@@ -1,0 +1,98 @@
+.wikicards {
+    width: 256px;
+    height: 256px;
+    background-color: black;
+    border: 4px dashed white;
+    padding: 8px;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.wikicards h1{
+    transition: all .3s;
+}
+.wikicards:hover h1{
+    color: rgb(255, 110, 25);
+    text-shadow: 0px 2px 0px rgb(182, 59, 2);
+}
+
+.wikicards img{
+    width: 160px;
+    height: 160px;
+    margin: auto;
+    padding-left: 48px;
+    padding-top: 32px;
+    image-rendering: pixelated;
+    object-fit: contain;
+    transform: translateY(0px);
+
+    transition: all .1s;
+}
+
+.wikicards:hover img{
+    animation-name: floaty;
+    animation-duration: 1s;
+}
+
+@keyframes floaty{
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+/* Mobile */
+@media screen and (max-width: 720px){
+    .wikicontainer{
+        width: 280px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+/* PC users */
+@media screen and (min-width: 720px){
+    .wikicontainer{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+
+.wikilistitem{
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 2px;
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    background-color: rgba(0, 0, 0, 0.212);
+    border-radius: 4px;
+}
+.wikilistitem img{
+    padding: 0;
+    margin: 0;
+    height: 48px;
+    height: 48px;
+    margin: 8px;
+    object-fit: contain;
+}
+
+.wikilistitem h3{
+    flex-grow: 1;
+    text-decoration: none;
+}
+.wikilistitem:hover{
+    background-color: rgba(95, 95, 95, 0.212);
+}

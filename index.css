@@ -219,14 +219,6 @@ body {
     position: fixed;
 }
 
-.logoimg{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  margin-bottom: 128px;
-  padding-top: 128px;
-}
 
 .closebutton{
     user-select: none;
@@ -303,6 +295,14 @@ body {
     /* .content {
         max-width: 100%;
     } */
+    .logoimg{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        margin-bottom: 128px;
+        padding-top: 128px;
+    }
     .tweets {
         max-width: 100%;
         max-height: 256px;
@@ -345,6 +345,14 @@ body {
     /* .content {
         max-width: 65%;
     } */
+    .logoimg{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        margin-bottom: 128px;
+        padding-top: 128px;
+    }
     .tweets {
         /* max-width: 30%; */
         overflow:auto;
@@ -754,4 +762,10 @@ button:active{
     z-index: 100;
     margin: 64px;
     padding: 32px;
+}
+.normalpost-columncontainer img{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    image-rendering: pixelated;
 }
