@@ -765,8 +765,9 @@ button:active{
     padding: 32px;
 }
 .normalpost-columncontainer img{
-    width: 100%;
+    max-width: 50%;
     height: auto;
+    margin: auto;
     object-fit: contain;
     image-rendering: pixelated;
 }
@@ -775,4 +776,10 @@ button:active{
     height: 128px;
     object-fit: contain;
     image-rendering: pixelated;
+}
+
+/* e.g item's damage or function */
+.iteminfoitem {
+    padding: 16px;
+    border-top: 2px solid rgb(90, 90, 90);
 }

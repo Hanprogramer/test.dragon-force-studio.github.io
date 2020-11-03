@@ -291,12 +291,14 @@
   },
   "weapons" : {
     "code_spear" : {
+      "damage" : 12,
       "description" : "Description:  A long pole with the wyvern's fang located at the tip of the shaft itself for penetration.  This weapon can be thrown at an enemy or prey.\nDamage:  12 \n\nMaterials:  Stick,  Dragon Fang",
       "image" : "https://dragon-force-studio.com/images/EF_wiki/code_spear.png",
       "image1" : "https://dragon-force-studio.com/images/EF_wiki/code_spear._recipe.png",
       "name" : "Code Spear"
     },
     "draxe" : {
+      "damage" : 25,
       "description" : "Description:  A large axe crafted by the Orc race.  And is only obtainable from slaying a Orc Captain.  \nDamage:  25 \n\nMaterials: Draxe",
       "image" : "https://dragon-force-studio.com/images/EF_wiki/draxe.png",
       "image1" : "https://dragon-force-studio.com/images/EF_wiki/draxe._recipe.png",

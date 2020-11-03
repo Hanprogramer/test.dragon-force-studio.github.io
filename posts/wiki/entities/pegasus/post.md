@@ -1,10 +1,10 @@
 #pegasus
-<a href="/posts/wiki/entities">entities</a>
+<a href="/wiki.html">Wiki</a> > <a href="/posts/wiki/entities">entities</a> > <a>pegasus</a>
 <div class="iteminfo">
 <h3>pegasus</h3>
 <img class="pixelimage" src="https://dragon-force-studio.com/images/EF_wiki/pegasus.png">
 
-</div>
+<a class="iteminfoitem">ID: pegasus</a></div>
 Description:  A mythical winged horse that is depicted as pure white.  This magnificent creature is to be tamed with patience.  It is said that the only way to tame the Pegasus is by approaching it with a Golden Carrot, but be careful to not scare it off.
 
 Health: 100 

@@ -148,15 +148,17 @@ for category in wiki.keys():
 
         item_file = open("posts/wiki/" + category + "/" + item + "/post.md", "w")
         item_file.write("#" + item + "\n")
-        item_file.write('<a href="/posts/wiki/%s">%s</a>' % (category,category) + "\n")
+        item_file.write('<a href="/wiki.html">Wiki</a> > <a href="/posts/wiki/%s">%s</a> > <a>%s</a>' % (category,category,item) + "\n")
 
         item_file.write('<div class="iteminfo">\n')
-        item_file.write('<h3>%s</h3>' % item + "\n")
+        item_file.write('<h3>%s</h3>' % item.replace("_", " ") + "\n")
         item_file.write('<img class="pixelimage" src="%s">' % (item_obj["image"]) + "\n\n")
+        if("damage" in item_obj):
+            item_file.write('<a class="iteminfoitem">Damage: %s</a>' % str(item_obj["damage"]))
+        item_file.write('<a class="iteminfoitem">ID: %s</a>' % item)
         item_file.write('</div>\n')
-        
         item_file.write(item_obj["description"])
-        
+
         item_file.close()
 
 # Generator
