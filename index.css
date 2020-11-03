@@ -285,7 +285,7 @@ body {
     transition: all .4s;
 }
 
-.columncontainer:hover img {
+.columncontainer:hover img:not([staticimage]) {
     /* border: 2px solid rgb(167, 38, 38); */
     transform: scale(1.2);
 }
@@ -673,8 +673,8 @@ button:active{
 /* Meet the team part */
 .teamskin{
     height: 512px;
-    width: auto;
-    background-image: url('images/ground.png');
+    width: 512px;
+    /* background-image: url('images/ground.png'); */
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100%;
@@ -687,7 +687,8 @@ button:active{
 }
 
 .teamskin img{
-    transform: translateY(10%);
+    width: 128px;
+    height: 128px;
     -webkit-filter: drop-shadow(1px 1px 0 black)
                     drop-shadow(-1px -1px 0 black);
     filter: drop-shadow(1px 1px 0 black) 
@@ -782,4 +783,14 @@ button:active{
 .iteminfoitem {
     padding: 16px;
     border-top: 2px solid rgb(90, 90, 90);
+}
+
+.profilepic {
+    min-width: 256px;
+    min-height: 256px;
+    object-fit: cover;
+
+    margin: auto;
+    border-radius: 100%;
+    border-bottom: 16px solid white;
 }

@@ -62,7 +62,7 @@
 /* PC users */
 @media screen and (min-width: 720px){
     .wikicontainer{
-        width: 90%;
+        width: fit-content;
         margin: auto;
         display: flex;
         flex-direction: row;
