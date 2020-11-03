@@ -279,7 +279,7 @@ body {
 .columncontainer{
     overflow: hidden;
 }
-.columncontainer img {
+.columncontainer img:not([staticimage]) {
     object-fit: cover;
     overflow: hidden;
     transition: all .4s;
@@ -333,7 +333,7 @@ body {
         margin: 16px;
     }
 
-    .columncontainer img{
+    .columncontainer img:not([staticimage]){
         max-width: 100%;
         min-width: 100%;
     }
@@ -387,7 +387,7 @@ body {
         margin-right: 10%;
     }
 
-    .columncontainer img{
+    .columncontainer img:not([staticimage]){
         max-width: 50%;
         min-width: 50%;
     }
@@ -687,8 +687,6 @@ button:active{
 }
 
 .teamskin img{
-    width: 128px;
-    height: 128px;
     -webkit-filter: drop-shadow(1px 1px 0 black)
                     drop-shadow(-1px -1px 0 black);
     filter: drop-shadow(1px 1px 0 black) 
@@ -784,13 +782,29 @@ button:active{
     padding: 16px;
     border-top: 2px solid rgb(90, 90, 90);
 }
-
-.profilepic {
+.teamskin a{
+    text-align: center;
+}
+.profilepic img{
     min-width: 256px;
     min-height: 256px;
+    max-width: 256px;
+    max-height: 256px;
     object-fit: cover;
 
     margin: auto;
     border-radius: 100%;
-    border-bottom: 16px solid white;
+    background-image: linear-gradient(to bottom right, black, black,rgb(49, 49, 49));
+}
+.profilepic{
+    width: fit-content;
+    height: fit-content;
+    content:" ";
+    left: 0; top: 0;
+    margin:auto;
+    border-radius: 100%;
+    padding: 16px;
+    margin-left: 33%;
+    background-image: linear-gradient(to bottom right, rgb(196, 31, 31), black, black);
+    box-shadow: 0px 8px 12px black;
 }
